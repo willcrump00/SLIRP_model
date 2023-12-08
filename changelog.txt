@@ -1,0 +1,32 @@
+**********enter name - date - and changes made so we can track progress and errors*************************************
+*********************************************************************************************************************
+*********************************************************************************************************************
+*********************************************************************************************************************
+
+will crump - 12/8/23
+
+
+added and updated rk4 function
+added e & f function derivatives to SLIRPE function
+** note ****************** not implemented
+e function should be our gaussian plume function
+-- need to identify position x,y we are using 
+presumably from the index of plant we are going over which 
+will be my working presumption
+-assumed that dep_area is area of entire orchard as it is used to find deposition length
+of spores in g-plume  (wrote Npx*Npy -- length of x*y) 50*50 plants each plant 1m long and wide
+**************************
+decided that e is calculated elsewhere because parameters are not passed, however parameters for f were passed
+set dydt(7) = e;
+
+added R_frac value fpr dydt(8)
+assumed M = m_used - unsure noted
+sure on xi and eta value
+
+added mean calculations to pathodrive
+added F - dydt8 - 
+
+driver script is now running - infected plants remains 0 - probably because no scouting method implemented
+
+*********************************************************************************************************************
+*********************************************************************************************************************
