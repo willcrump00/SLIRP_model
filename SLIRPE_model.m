@@ -69,10 +69,10 @@ function [dydt] = SLIRPE_model(idx,y,e,mu_L,p)
     end
     beta = beta_max*Sall_temp_effect(T_used); %pathogen growth rate
     
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    dydt(1) = %YOUR CODE GOES HERE for our Pb (Berries) function
-    dydt(2) = %YOUR CODE GOES HERE for our P function
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %plant growth variables (Sall, 1980)
+    TE = -0.35968 +0.10789*T_used-0.00214*T_used*T_used; %effective temperature
+    dydt(1) = (0.1724*B-0.0000212*B*B)*TE; %change in amount of berries
+    dydt(2) = (1.33*(day_used+30))*TE+dydt(1); %change in P
 
     %disease variables
     dydt(3) = -beta*S*I+dydt(2)/A;              %change in S
@@ -80,7 +80,7 @@ function [dydt] = SLIRPE_model(idx,y,e,mu_L,p)
     dydt(5) = mu_L_used*L-mu_I*I;               %change in I
     dydt(6) = mu_I*I;                           %change in R
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    %YOUR CODE GOES HERE for our E function
+    dydt(7) = %not sure what to do here
     if(I==0)%spore production shouldn't start before infection (quirk of exponential curve fit)
         dydt(8) = 0;
     else
