@@ -62,7 +62,7 @@ p{11}= Gamma;    %spore production multiple
 p{12}= alpha;   %spore production 2nd factor
 
 % declare function handles
-odefun = @(t,y,e,g) SLIRPE_model(t,y,e,g,p);
+odefun = @(t,y,e,g,p) SLIRPE_model(t,y,e,g,p);
 
 % loop over timesteps (starting at 2)
 for t=2:Nsteps
@@ -114,7 +114,7 @@ for t=2:Nsteps
             %%%% INSERT YOUR CODE HERE for time integration, note for
             %%%% odefun to work as given above your call needs to look like:
             %
-            %[y] = TimeInt(odefun,t,dt,y0,DepFlux_sum(cnt),vine(cnt).mu_L);
+            [y] = rk4(odefun,t,dt,y0,DepFlux_sum(cnt),vine(cnt).mu_L,p);
             %
             %NOTE: recognize that you are only integrating 1 time step!
             %your routine can be more general than that but recognize that

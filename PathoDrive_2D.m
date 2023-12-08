@@ -81,6 +81,13 @@ toc
 %Calculate stats for entire domain at each time step
 S_ave = mean([vine.S],2);
 %INSERT YOUR CODE HERE to fill in the rest...
+L_ave = mean([vine.L],2);
+I_ave = mean([vine.I],2);
+R_ave = mean([vine.R],2);
+P_ave = mean([vine.P],2);
+E_ave = mean([vine.E],2);
+B_ave = mean([vine.B],2);
+F_ave = mean([vine.F],2);
 
 %%%%%%%%%%%%%%%%%%%%% Plot the average of the field %%%%%%%%%%%%%%%%%%%%%%%
 FSize = 14; %fontsize for plots

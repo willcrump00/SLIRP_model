@@ -44,6 +44,7 @@ function [dydt] = SLIRPE_model(idx,y,e,mu_L,p)
     Gamma    = p{11};
     alpha    = p{12};
 
+
     %assign variables
     B = y(1);
     P = y(2);
@@ -53,6 +54,7 @@ function [dydt] = SLIRPE_model(idx,y,e,mu_L,p)
     R = y(6);
     E = y(7);
     F = y(8);
+
 
     %calculated parameters
     if(ceil(idx)==floor(idx)) %when we are at an interger step
@@ -80,11 +82,26 @@ function [dydt] = SLIRPE_model(idx,y,e,mu_L,p)
     dydt(5) = mu_L_used*L-mu_I*I;               %change in I
     dydt(6) = mu_I*I;                           %change in R
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    dydt(7) = %not sure what to do here
+
+    % i am faily confident our e is the guassian plume dep function
+    % using vine.X and Y at index location unsure on area of plume
+    % need dep area - unsure what to make of that. will call dep_area(
+    % assuming size of orchard 50x50 used npx*npy - going to assume that e
+    % is updated elsewhere in the files and pulled here, because there is
+    % not the necessary parameters for it.
+    
+    %dydt(7) = GaussianPlumeDep(vine.X(idx), vine.Y(idx) ,Windspd, WindDir, Npx*Npy,Q);
+    dydt(7) = e;
     if(I==0)%spore production shouldn't start before infection (quirk of exponential curve fit)
         dydt(8) = 0;
     else
         %YOUR CODE GOES HERE for our F function
+        %added dydt8 - havent verified variables
+        %probably need to implement R_frac
+
+        R_frac = F*(  (exp(kappa*m_used + xi))/ (eta*(1+exp(kappa*m_used + xi))  ));
+        %used M_used as value for m - could be wrong
+        dydt(8) = Gamma*exp(alpha*I) - F*R_frac;
     end
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 end
