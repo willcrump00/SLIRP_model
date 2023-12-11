@@ -26,7 +26,54 @@ sure on xi and eta value
 added mean calculations to pathodrive
 added F - dydt8 - 
 
-driver script is now running - infected plants remains 0 - probably because no scouting method implemented
+*********************************************************************************************************************
+*********************************************************************************************************************
+ will curmp 12/10/23
 
-*********************************************************************************************************************
-*********************************************************************************************************************
+started writing scouting function
+changed alpha * AP as per notes
+
+-----------------collected data ---------------------
+min infection size .0159mm 
+drone speed required to detect that - 0.000795m/s = .047m/min = 2.862m/hr (max)
+solve 2 = .047 * x = 43 minutes of searching = 100 * .716 = $71.6 for 2 plants
+max of 24 plants searched with 12 drones = $859
+
+cost breakdown for days 10 - 15
+if scouting every day
+$859 - if no infected
+$1859 - infected and not found
+$859 * days - if infected is found - min cost
+
+probability of finding within first 5 days
+24 * 5 / 2500 = 4.8%
+discuss risk to reward ratio
+
+for days 15-20 infected plants is usually 1-2 at this time (takes about 5 days for infected pop to double)
+min infection size = 0.0208 mm - .06mm (day 20)
+drone speed required to detect
+day 15 = .0208 = 20x (spd = .001m/s)
+day 20 = .06 = 20x (spd = .003m/s)
+
+detection stats
+day 15 - max plants = 3.6 plants per hr
+cost for 3 plants = 100*.833 = 83.3$
+max 12 drones searching - we can scan 36 plants per - 999$
+
+cost breakdown
+if no infected for first 15 days & searched - none found infected around day 15
+($859 * 5 )(scouting for first 5 days) + ($1000 * 5) + ($1000*5) = $14295
+probability of finding infected plants
+120 + 36*5 / 2500 = 12% chance
+
+cost if no drones run during this time assuming average start time of infection at 13 days and 
+2 infected at 18 days
+min cost seen = $3000
+max cost seen = $inf essentially
+$5000 + $4000 = $9000
+cost benefit analysis
+12% chance at detection == ~$5300 
+
+
+after 2 plants have been infected the infection rate shoots up exponentially
+day 15 =2 day 20 =200
