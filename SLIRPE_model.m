@@ -101,7 +101,9 @@ function [dydt] = SLIRPE_model(idx,y,e,mu_L,p)
 
         R_frac = F*(  (exp(kappa*m_used + xi))/ (eta*(1+exp(kappa*m_used + xi))  ));
         %used M_used as value for m - could be wrong
-        dydt(8) = Gamma*exp(alpha*I) - F*R_frac;
+        %multiplied by norm factor as per note
+        %(A*.0001) cm^2 to m^2
+        dydt(8) = Gamma*exp(alpha*I*(A*0.0001)) - F*R_frac;
     end
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 end

@@ -68,10 +68,12 @@ odefun = @(t,y,e,g,p) SLIRPE_model(t,y,e,g,p);
 for t=2:Nsteps
 
     disp(['day=',num2str(tspan(t),'%.2f'),' infected plants=',int2str(sum([vine.IsInfect]))])
+
     dt=tspan(t)-tspan(t-1); %timestep
 
     %update list of infected vines
     ActiveVines = find([vine.IsInfect]);
+
     %initialize deposition flux for timestep
     DepFlux_sum=zeros(1,NpX*NpY);
 
@@ -79,7 +81,6 @@ for t=2:Nsteps
         %calculate positions of other vines relative to each infected plant
         Xplume = [vine.X]-vine(idx).X;
         Yplume = [vine.Y]-vine(idx).Y;
-        
         DepFlux = GaussianPlumeDep(Xplume,Yplume,p{6}(t),p{7}(t),...
             vine(idx).S(t-1),vine(idx).F(t-1));
         NNaNInd = ~isnan(DepFlux);
