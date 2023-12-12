@@ -68,6 +68,11 @@ odefun = @(t,y,e,g,p) SLIRPE_model(t,y,e,g,p);
 for t=2:Nsteps
 
     disp(['day=',num2str(tspan(t),'%.2f'),' infected plants=',int2str(sum([vine.IsInfect]))])
+    
+    %only simulate for a set number of days so we can run this faster for testing
+     if(tspan(t) >= 45)
+         break
+     end
 
     dt=tspan(t)-tspan(t-1); %timestep
 

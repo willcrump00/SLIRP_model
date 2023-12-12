@@ -77,3 +77,17 @@ cost benefit analysis
 
 after 2 plants have been infected the infection rate shoots up exponentially
 day 15 =2 day 20 =200
+
+
+========================================
+Drew Crandall
+12/12/23
+
+-added a script for making movies with our population data
+-added an if statement to the pathogen growth function that allows it to 
+only simulate a certain number of days. this will help speed up testing and
+troubleshooting instead of having to wait an hour for it to run the whole sim
+-added a save function at the bottom of the driver script to save all the simulation
+data so that you dont have to rerun the sim each time you need to make code changes, just load the MAT file
+
+===================================================================================================

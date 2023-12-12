@@ -89,15 +89,21 @@ E_ave = mean([vine.E],2);
 B_ave = mean([vine.B],2);
 F_ave = mean([vine.F],2);
 
+%save the data to a mat file so we dont have to run the simulation
+%everytime we run into an error and for testing
+save('simulationData',"S_ave","L_ave","I_ave","R_ave","P_ave","E_ave","B_ave","F_ave");
+
 %%%%%%%%%%%%%%%%%%%%% Plot the average of the field %%%%%%%%%%%%%%%%%%%%%%%
-FSize = 14; %fontsize for plots
-figure;plot(tspan,S_ave,'-k','LineWidth',2);
-legend({'Susceptible'},'Location','NorthWest');
-xlabel('time (days)','Fontsize',FSize);
-ylabel('Population (fraction of initial)','Fontsize',FSize)
-title('average epidemic')
-set(gca,'Fontsize',FSize,'Xlim',[0 61]); 
-box on;grid on
+% FSize = 14; %fontsize for plots
+% figure;
+% plot(tspan,S_ave,'-k','LineWidth',2);
+% legend({'Susceptible'},'Location','NorthWest');
+% xlabel('time (days)','Fontsize',FSize);
+% ylabel('Population (fraction of initial)','Fontsize',FSize)
+% title('average epidemic')
+% set(gca,'Fontsize',FSize,'Xlim',[0 61]); 
+% box on;
+% grid on;
 
 %INSERT YOUR CODE HERE to add plotting of other elements and optional
 %things like movies
