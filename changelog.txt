@@ -91,3 +91,22 @@ troubleshooting instead of having to wait an hour for it to run the whole sim
 data so that you dont have to rerun the sim each time you need to make code changes, just load the MAT file
 
 ===================================================================================================
+
+Will Crump
+12/12/23
+
+-updated scouting routine to work with cm^2 for infection size in stead of on a per population basis.
+min size of infection to set infection flag == 0.49cm^2
+corresponds to a drone search diameter of 
+2.49mm
+corresponds to drone speed of just under .125m/s
+(actually pretty fast)
+we can search 450 plants per drone
+5400 plants :)
+redesigning the scouting algorythim based on this new data
+
+- fixed added functional cost 
+- lots of modulo logic errors and stupid things with sum function
+
+so many changes i forgot to write anything down. worked for about 6 hours today on accident lol
+ =============================================================

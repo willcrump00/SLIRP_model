@@ -151,7 +151,10 @@ for t=2:Nsteps
 
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    %%%        RECOMMENDED LOCATION FOR YOUR SCOUTING ROUTINE           %%%
+    [detect_flag,cost,infected_plant,latent_plant] = scouting_routine(tspan,t,vine);
+    fprintf(' results of scouting: \n detection?: %.0f \n cost: %.0f \n',detect_flag,cost);
+   % fprintf('latent plant(s): %i\n',latent_plant);
+   % fprintf('infected plant(s): %i\n',infected_plant);
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
