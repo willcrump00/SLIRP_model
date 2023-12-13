@@ -86,7 +86,7 @@ I_ave = mean([vine.I],2);
 R_ave = mean([vine.R],2);
 P_ave = mean([vine.P],2);
 E_ave = mean([vine.E],2);
-B_ave = mean([vine.B],2);
+B_ave = mean([vine.B]./A,2); %normalized the berry values for graph
 F_ave = mean([vine.F],2);
 
 %save the data to a mat file so we dont have to run the simulation
